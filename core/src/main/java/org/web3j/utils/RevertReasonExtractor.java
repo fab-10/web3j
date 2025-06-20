@@ -56,6 +56,21 @@ public class RevertReasonExtractor {
         return MISSING_REASON;
     }
 
+    public static String extractRevertReasonEncodedData(
+        TransactionReceipt transactionReceipt,
+        String data,
+        Web3j web3j,
+        BigInteger weiValue)
+            throws IOException {
+        String revertReason = retrieveRevertReasonEncodedData(transactionReceipt, data, web3j, weiValue);
+        if (revertReason != null) {
+            return revertReason;
+        }
+        return MISSING_REASON;
+    }
+
+
+
     /**
      * Extracts the error reason of a reverted transaction (if one exists and enabled).
      *
@@ -103,6 +118,24 @@ public class RevertReasonExtractor {
                         DefaultBlockParameter.valueOf(transactionReceipt.getBlockNumber()))
                 .send()
                 .getRevertReason();
+    }
+
+    public static String retrieveRevertReasonEncodedData(
+            TransactionReceipt transactionReceipt, String data, Web3j web3j, BigInteger weiValue)
+            throws IOException {
+
+        if (transactionReceipt.getBlockNumber() == null) {
+            return null;
+        }
+        return web3j.ethCall(
+                        Transaction.createEthCallTransaction(
+                                transactionReceipt.getFrom(),
+                                transactionReceipt.getTo(),
+                                data,
+                                weiValue),
+                        DefaultBlockParameter.valueOf(transactionReceipt.getBlockNumber()))
+                .send()
+                .getRevertReasonEncodedData();
     }
 
     /**
