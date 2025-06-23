@@ -73,5 +73,4 @@ public class EthCall extends Response<String> {
         }
         return null;
     }
-
 }

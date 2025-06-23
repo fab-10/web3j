@@ -56,7 +56,6 @@ public class RevertReasonExtractor {
         return MISSING_REASON;
     }
 
-
     /**
      * Retrieves the error reason encoded data of a reverted transaction (if one exists).
      *
@@ -68,19 +67,15 @@ public class RevertReasonExtractor {
      * @throws IOException if the call to the node fails
      */
     public static String extractRevertReasonEncodedData(
-        TransactionReceipt transactionReceipt,
-        String data,
-        Web3j web3j,
-        BigInteger weiValue)
+            TransactionReceipt transactionReceipt, String data, Web3j web3j, BigInteger weiValue)
             throws IOException {
-        String revertReason = retrieveRevertReasonEncodedData(transactionReceipt, data, web3j, weiValue);
+        var revertReason =
+                retrieveRevertReasonEncodedData(transactionReceipt, data, web3j, weiValue);
         if (revertReason != null) {
             return revertReason;
         }
         return MISSING_REASON;
     }
-
-
 
     /**
      * Extracts the error reason of a reverted transaction (if one exists and enabled).
@@ -131,9 +126,9 @@ public class RevertReasonExtractor {
                 .getRevertReason();
     }
 
-
     /**
-     * Retrieves the error reason from the encoded data field of a reverted transaction (if one exists).
+     * Retrieves the error reason from the encoded data field of a reverted transaction (if one
+     * exists).
      *
      * @param transactionReceipt the reverted transaction receipt
      * @param data the reverted transaction data
@@ -142,7 +137,6 @@ public class RevertReasonExtractor {
      * @return the encoded data representing the revert reason if exists or null otherwise
      * @throws IOException if the call to the node fails
      */
-
     public static String retrieveRevertReasonEncodedData(
             TransactionReceipt transactionReceipt, String data, Web3j web3j, BigInteger weiValue)
             throws IOException {

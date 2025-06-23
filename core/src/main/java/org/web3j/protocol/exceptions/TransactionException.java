@@ -40,7 +40,8 @@ public class TransactionException extends Exception {
         this.transactionReceipt = Optional.ofNullable(transactionReceipt);
     }
 
-    public TransactionException(String message, TransactionReceipt transactionReceipt, String data) {
+    public TransactionException(
+            String message, TransactionReceipt transactionReceipt, String data) {
         super(message);
         this.transactionReceipt = Optional.ofNullable(transactionReceipt);
         this.encodedDataResponse = Optional.ofNullable(data);
@@ -68,7 +69,7 @@ public class TransactionException extends Exception {
         return transactionReceipt;
     }
 
-
-
-    public Optional<String> getEncodedDataResponse(){return encodedDataResponse;}
+    public Optional<String> getEncodedDataResponse() {
+        return encodedDataResponse;
+    }
 }

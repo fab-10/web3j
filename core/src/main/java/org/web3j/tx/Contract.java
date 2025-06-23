@@ -444,8 +444,7 @@ public abstract class Contract extends ManagedTransaction {
                                     : "unknown",
                             extractRevertReason(receipt, data, web3j, true, weiValue)),
                     receipt,
-                    extractRevertReasonEncodedData(receipt, data, web3j, weiValue)
-            );
+                    extractRevertReasonEncodedData(receipt, data, web3j, weiValue));
         }
         return receipt;
     }
