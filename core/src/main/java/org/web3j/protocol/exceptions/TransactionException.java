@@ -68,7 +68,12 @@ public class TransactionException extends Exception {
     public Optional<TransactionReceipt> getTransactionReceipt() {
         return transactionReceipt;
     }
-
+    
+    /**
+     * Obtain the Encoded data field from response.
+     *
+     * @return optional Encoded data field .
+     */
     public Optional<String> getEncodedDataResponse() {
         return encodedDataResponse;
     }
