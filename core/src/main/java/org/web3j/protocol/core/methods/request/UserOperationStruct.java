@@ -27,7 +27,7 @@ import org.web3j.utils.Numeric;
  * </ol>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class EIP4337Transaction {
+public class UserOperationStruct {
 
     private String sender;
     private BigInteger nonce;
@@ -41,7 +41,7 @@ public class EIP4337Transaction {
     private String signature;
     private String paymasterAndData;
 
-    public EIP4337Transaction(
+    public UserOperationStruct(
             String sender,
             BigInteger nonce,
             String initCode,
@@ -66,7 +66,7 @@ public class EIP4337Transaction {
         this.paymasterAndData = paymasterAndData;
     }
 
-    public static EIP4337Transaction createEthSendUserOperationTransaction(
+    public static UserOperationStruct createEthSendUserOperationTransaction(
             String sender,
             BigInteger nonce,
             String initCode,
@@ -78,7 +78,7 @@ public class EIP4337Transaction {
             String maxPriorityFeePerGas,
             String signature,
             String paymasterAndData) {
-        return new EIP4337Transaction(
+        return new UserOperationStruct(
                 sender,
                 nonce,
                 initCode,
@@ -92,7 +92,7 @@ public class EIP4337Transaction {
                 paymasterAndData);
     }
 
-    public static EIP4337Transaction createEthEstimateUserOperationGasTransaction(
+    public static UserOperationStruct createEthEstimateUserOperationGasTransaction(
             String sender,
             BigInteger nonce,
             String initCode,

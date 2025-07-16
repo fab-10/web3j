@@ -13,7 +13,7 @@
 package org.web3j.protocol.core.methods.response;
 
 /** UserOperation object used by {@link EthGetUserOperationByHash}. */
-public class UserOperation {
+public class UserOperationResult {
     private String sender;
     private String nonce;
     private String initCode;
@@ -30,9 +30,9 @@ public class UserOperation {
     private String blockHash;
     private String transactionHash;
 
-    public UserOperation() {}
+    public UserOperationResult() {}
 
-    public UserOperation(
+    public UserOperationResult(
             String sender,
             String nonce,
             String initCode,
@@ -190,7 +190,7 @@ public class UserOperation {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof UserOperation other)) {
+        if (!(o instanceof UserOperationResult other)) {
             return false;
         }
 

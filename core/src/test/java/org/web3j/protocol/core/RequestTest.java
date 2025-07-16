@@ -20,11 +20,11 @@ import org.junit.jupiter.api.Test;
 import org.web3j.protocol.RequestTester;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.Web3jService;
-import org.web3j.protocol.core.methods.request.EIP4337Transaction;
 import org.web3j.protocol.core.methods.request.EthFilter;
 import org.web3j.protocol.core.methods.request.ShhFilter;
 import org.web3j.protocol.core.methods.request.ShhPost;
 import org.web3j.protocol.core.methods.request.Transaction;
+import org.web3j.protocol.core.methods.request.UserOperationStruct;
 import org.web3j.protocol.core.methods.response.EthBlock;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Numeric;
@@ -364,7 +364,7 @@ class RequestTest extends RequestTester {
     @Test
     void testEthSendUserOperation() throws Exception {
         web3j.ethSendUserOperation(
-                        EIP4337Transaction.createEthSendUserOperationTransaction(
+                        UserOperationStruct.createEthSendUserOperationTransaction(
                                 "0xa70e8dd61c5d32be8058bb8eb970870f07233155",
                                 BigInteger.ONE,
                                 "0x0",
@@ -388,7 +388,7 @@ class RequestTest extends RequestTester {
     @Test
     void testEthEstimateUserOperationGas() throws Exception {
         web3j.ethEstimateUserOperationGas(
-                        EIP4337Transaction.createEthEstimateUserOperationGasTransaction(
+                        UserOperationStruct.createEthEstimateUserOperationGasTransaction(
                                 "0xa70e8dd61c5d32be8058bb8eb970870f07233155",
                                 BigInteger.ONE,
                                 "0x0",

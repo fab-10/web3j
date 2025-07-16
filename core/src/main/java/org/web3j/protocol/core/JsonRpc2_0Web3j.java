@@ -25,10 +25,10 @@ import io.reactivex.Flowable;
 
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.Web3jService;
-import org.web3j.protocol.core.methods.request.EIP4337Transaction;
 import org.web3j.protocol.core.methods.request.ShhFilter;
 import org.web3j.protocol.core.methods.request.ShhPost;
 import org.web3j.protocol.core.methods.request.Transaction;
+import org.web3j.protocol.core.methods.request.UserOperationStruct;
 import org.web3j.protocol.core.methods.response.BooleanResponse;
 import org.web3j.protocol.core.methods.response.DbGetHex;
 import org.web3j.protocol.core.methods.response.DbGetString;
@@ -409,7 +409,7 @@ public class JsonRpc2_0Web3j implements Web3j {
 
     @Override
     public Request<?, EthSendUserOperation> ethSendUserOperation(
-            EIP4337Transaction transaction, String entryPointAddress) {
+            UserOperationStruct transaction, String entryPointAddress) {
         return new Request<>(
                 "eth_sendUserOperation",
                 Arrays.asList(transaction, entryPointAddress),
@@ -419,7 +419,7 @@ public class JsonRpc2_0Web3j implements Web3j {
 
     @Override
     public Request<?, EthEstimateUserOperationGas> ethEstimateUserOperationGas(
-            EIP4337Transaction transaction, String entryPointAddress) {
+            UserOperationStruct transaction, String entryPointAddress) {
         return new Request<>(
                 "eth_estimateUserOperationGas",
                 Arrays.asList(transaction, entryPointAddress),

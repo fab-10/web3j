@@ -92,8 +92,8 @@ import org.web3j.protocol.core.methods.response.ShhVersion;
 import org.web3j.protocol.core.methods.response.Transaction;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.core.methods.response.TxPoolStatus;
-import org.web3j.protocol.core.methods.response.UserOperation;
 import org.web3j.protocol.core.methods.response.UserOperationReceipt;
+import org.web3j.protocol.core.methods.response.UserOperationResult;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.core.methods.response.Web3Sha3;
 import org.web3j.protocol.core.methods.response.admin.AdminDataDir;
@@ -676,8 +676,8 @@ class ResponseTest extends ResponseTester {
         EthGetUserOperationByHash userOperationByHash =
                 deserialiseResponse(EthGetUserOperationByHash.class);
 
-        UserOperation userOperation =
-                new UserOperation(
+        UserOperationResult userOperation =
+                new UserOperationResult(
                         "0x600160008035811a818181146012578301005b601b60013560255",
                         "0x1",
                         "0x9f759",

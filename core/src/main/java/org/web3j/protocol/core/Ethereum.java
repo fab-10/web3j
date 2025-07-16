@@ -16,6 +16,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 import org.web3j.protocol.core.methods.request.ShhFilter;
+import org.web3j.protocol.core.methods.request.UserOperationStruct;
 import org.web3j.protocol.core.methods.response.BooleanResponse;
 import org.web3j.protocol.core.methods.response.DbGetHex;
 import org.web3j.protocol.core.methods.response.DbGetString;
@@ -169,14 +170,12 @@ public interface Ethereum {
             org.web3j.protocol.core.methods.request.Transaction transaction);
 
     Request<?, EthSendUserOperation> ethSendUserOperation(
-            org.web3j.protocol.core.methods.request.EIP4337Transaction transaction,
-            String entryPointAddress);
+            UserOperationStruct transaction, String entryPointAddress);
 
     Request<?, EthSupportedEntryPoints> ethSupportedEntryPoints();
 
     Request<?, EthEstimateUserOperationGas> ethEstimateUserOperationGas(
-            org.web3j.protocol.core.methods.request.EIP4337Transaction transaction,
-            String entryPointAddress);
+            UserOperationStruct transaction, String entryPointAddress);
 
     Request<?, EthGetUserOperationByHash> ethGetUserOperationByHash(String hash);
 

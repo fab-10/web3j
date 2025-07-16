@@ -25,28 +25,28 @@ import org.web3j.protocol.ObjectMapperFactory;
 import org.web3j.protocol.core.Response;
 
 /** eth_getUserOperationByHash. */
-public class EthGetUserOperationByHash extends Response<UserOperation> {
+public class EthGetUserOperationByHash extends Response<UserOperationResult> {
 
     @Override
     @JsonDeserialize(using = EthGetUserOperationByHash.ResponseDeserialiser.class)
-    public void setResult(UserOperation result) {
+    public void setResult(UserOperationResult result) {
         super.setResult(result);
     }
 
-    public UserOperation getUserOperation() {
+    public UserOperationResult getUserOperation() {
         return getResult();
     }
 
-    public static class ResponseDeserialiser extends JsonDeserializer<UserOperation> {
+    public static class ResponseDeserialiser extends JsonDeserializer<UserOperationResult> {
 
         private ObjectReader objectReader = ObjectMapperFactory.getObjectReader();
 
         @Override
-        public UserOperation deserialize(
+        public UserOperationResult deserialize(
                 JsonParser jsonParser, DeserializationContext deserializationContext)
                 throws IOException {
             if (jsonParser.getCurrentToken() != JsonToken.VALUE_NULL) {
-                return objectReader.readValue(jsonParser, UserOperation.class);
+                return objectReader.readValue(jsonParser, UserOperationResult.class);
             } else {
                 return null; // null is wrapped by Optional in above getter
             }
