@@ -142,7 +142,9 @@ public class CoreIT {
 
     @Test
     public void testEthHashrate() throws Exception {
+        Thread.sleep(100);
         EthHashrate ethHashrate = web3j.ethHashrate().send();
+        Thread.sleep(1000);
         assertEquals(1, ethHashrate.getHashrate().compareTo(BigInteger.ONE));
     }
 
@@ -491,7 +493,9 @@ public class CoreIT {
 
     @Test
     public void testEthGetWork() throws Exception {
+        Thread.sleep(1000);
         EthGetWork ethGetWork = web3j.ethGetWork().send();
+        Thread.sleep(1000);
 
         if (ethGetWork.hasError()) {
             assertEquals(ethGetWork.getError().getMessage(), "No mining work available yet");
