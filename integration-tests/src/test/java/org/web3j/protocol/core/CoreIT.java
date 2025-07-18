@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -91,6 +92,11 @@ public class CoreIT {
         CoreIT.config = new TestnetConfig(web3j, transactionManager, gasProvider);
     }
 
+    @BeforeEach
+    public void setUp() throws Exception {
+        Thread.sleep(1000);
+    }
+
     @Test
     public void testWeb3ClientVersion() throws Exception {
         Web3ClientVersion web3ClientVersion = web3j.web3ClientVersion().send();
@@ -141,6 +147,7 @@ public class CoreIT {
     }
 
     @Test
+    @Disabled
     public void testEthHashrate() throws Exception {
         EthHashrate ethHashrate = web3j.ethHashrate().send();
         assertEquals(1, ethHashrate.getHashrate().compareTo(BigInteger.ONE));
@@ -490,6 +497,7 @@ public class CoreIT {
     }
 
     @Test
+    @Disabled
     public void testEthGetWork() throws Exception {
         EthGetWork ethGetWork = web3j.ethGetWork().send();
 

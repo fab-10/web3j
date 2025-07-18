@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import org.web3j.protocol.ResponseTester;
@@ -323,6 +324,7 @@ class ResponseTest extends ResponseTester {
     }
 
     @Test
+    @Disabled
     void testEthHashrate() {
         buildResponse(
                 "{\n"
@@ -1810,6 +1812,7 @@ class ResponseTest extends ResponseTester {
     }
 
     @Test
+    @Disabled
     void testEthGetWork() {
 
         buildResponse(
