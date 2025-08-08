@@ -36,6 +36,6 @@ jobs:
       - name: Publish snapshot
         run: ./gradlew publish
       - name: Release snapshot with JReleaser
-        run: ./gradlew jreleaserSnapshot
+        run: ./gradlew jreleaserDeploy --snapshot
 
 
