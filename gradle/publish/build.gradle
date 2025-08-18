@@ -92,7 +92,7 @@ jreleaser {
                     snapshotSupported = true
                     closeRepository = true
                     releaseRepository = true
-                    stagingRepository('build/staging-repo')
+                    stagingRepository('${buildDir}/staging-deploy')
                 }
             }
         }

@@ -33,9 +33,11 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+      - name: Publish publications
+        run: ./gradlew publishMavenPublicationToMavenRepository --stacktrace
       - name: Publish snapshot
-        run: ./gradlew publish
+        run: ./gradlew publish --stacktrace
       - name: Release snapshot with JReleaser
-        run: ./gradlew jreleaserDeploy
+        run: ./gradlew jreleaserDeploy --stacktrace
 
 
