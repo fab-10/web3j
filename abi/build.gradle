@@ -8,10 +8,6 @@ dependencies {
     api project(':utils')
 }
 
-tasks.named("jreleaserDeploy").configure {
-    dependsOn("publishMavenPublicationToMavenRepository")
-}
-
 tasks.named("spotlessJava").configure {
     dependsOn("spotlessGroovyGradle", "compileJava", "compileTestJava", "javadoc", "test", "jacocoTestReport")
 }
