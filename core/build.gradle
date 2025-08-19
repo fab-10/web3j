@@ -91,7 +91,3 @@ tasks.named("spotlessJava").configure {
 tasks.named("spotlessKotlin").configure {
     dependsOn("compileJava", "spotlessJava", "spotlessGroovyGradle", "compileTestJava", "processTestResources", "javadoc", "test", "jacocoTestReport")
 }
-
-tasks.named("jreleaserDeploy").configure {
-    dependsOn("publishMavenPublicationToMavenRepository")
-}

@@ -65,10 +65,9 @@ publishing {
     repositories {
         maven {
             name = "localStaging"
-            url = uri(layout.buildDirectory.dir("staging-repo"))
+            url = uri(layout.buildDirectory.dir("staging-deploy"))
         }
     }
-
 }
 
 jreleaser {
@@ -92,9 +91,13 @@ jreleaser {
                     snapshotSupported = true
                     closeRepository = true
                     releaseRepository = true
-                    stagingRepository('${buildDir}/staging-deploy')
+                    stagingRepository("${buildDir}/staging-deploy")
                 }
             }
         }
     }
+}
+
+tasks.named("jreleaserDeploy").configure {
+    dependsOn("publishMavenPublicationToLocalStagingRepository")
 }
