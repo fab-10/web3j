@@ -87,7 +87,7 @@ jreleaser {
 //                }
                 'maven-snapshots' {
                     active = 'SNAPSHOT'
-                    snapshotUrl = 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+                    snapshotUrl = 'https://central.sonatype.com/repository/maven-snapshots/'
                     snapshotSupported = true
                     closeRepository = true
                     releaseRepository = true
