@@ -100,7 +100,7 @@ jreleaser {
 
 tasks.register("publishSnapshot") {
     dependsOn("publishMavenPublicationToSonatypeSnapshotsRepository")
-    onlyIf { version.endsWith("-SNAPSHOT")
+    onlyIf { version.endsWith("-SNAPSHOT") }
 }
 
 tasks.named("jreleaserDeploy").configure {
