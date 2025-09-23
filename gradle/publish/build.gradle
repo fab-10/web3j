@@ -71,8 +71,8 @@ publishing {
             name = "sonatypeSnapshots"
             url = uri("https://central.sonatype.com/repository/maven-snapshots/")
             credentials {
-                username = findProperty("JRELEASER_NEXUS2_USERNAME") ?: System.getenv("JRELEASER_NEXUS2_USERNAME")
-                password = findProperty("NEXUS2_TOKEN_PASSWORD") ?: System.getenv("NEXUS2_TOKEN_PASSWORD")
+                username = findProperty("JRELEASER_MAVENCENTRAL_CENTRAL_USERNAME") ?: System.getenv("JRELEASER_MAVENCENTRAL_CENTRAL_USERNAME")
+                password = findProperty("JRELEASER_MAVENCENTRAL_CENTRAL_PASSWORD") ?: System.getenv("JRELEASER_MAVENCENTRAL_CENTRAL_PASSWORD")
         }
     }
     }
@@ -85,12 +85,11 @@ jreleaser {
     }
     deploy {
         maven {
-            nexus2 {
-                'maven-central' {
+            mavenCentral {
+                'central' {
                     active = 'RELEASE'
                     url = 'https://central.sonatype.com/api/v1/publisher'
-                    closeRepository = true
-                    releaseRepository = true
+                    applyMavenCentralRules = true
                     stagingRepository("${buildDir}/staging-deploy")
                 }
             }
