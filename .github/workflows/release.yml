@@ -52,16 +52,12 @@ jobs:
 
 
       # Publish artifacts to local staging repo (your Gradle config already defines it)
-      - name: Stage artifacts locally
-        run: ./gradlew -Pversion=${{ steps.release_name.outputs.version }} publishMavenPublicationToLocalStagingRepository --stacktrace
-
-      # Deploy to Central Portal via JReleaser (Publisher API)
-      - name: Deploy to Maven Central (Portal)
-        run: ./gradlew -Pversion=${{ steps.release_name.outputs.version }} jreleaserDeploy --stacktrace
-
-      # Create GitHub release (tags, notes, assets) via JReleaser
-      - name: Create GitHub Release with JReleaser
-        run: ./gradlew -Pversion=${{ steps.release_name.outputs.version }} jreleaserRelease --stacktrace
+#      - name: Stage artifacts locally
+#        run: ./gradlew -Pversion=${{ steps.release_name.outputs.version }} publishMavenPublicationToLocalStagingRepository --stacktrace
+#
+#      # Deploy to Central Portal via JReleaser (Publisher API)
+#      - name: Deploy to Maven Central (Portal)
+#        run: ./gradlew -Pversion=${{ steps.release_name.outputs.version }} jreleaserDeploy --stacktrace
 
   javadocs-release:
     needs: release
