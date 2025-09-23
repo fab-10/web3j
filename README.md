@@ -141,7 +141,7 @@ Gradle
 Java:
 
 ```groovy
-implementation ('org.web3j:core:4.14.0')
+implementation ('org.web3j:core:5.0.1')
 ```
 
 Android:
