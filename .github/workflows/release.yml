@@ -50,14 +50,13 @@ jobs:
           echo "This workflow is for releases only. Version '${{ steps.release_name.outputs.version }}' ends with -SNAPSHOT." >&2
           exit 1
 
-
       # Publish artifacts to local staging repo (your Gradle config already defines it)
-#      - name: Stage artifacts locally
-#        run: ./gradlew -Pversion=${{ steps.release_name.outputs.version }} publishMavenPublicationToLocalStagingRepository --stacktrace
-#
-#      # Deploy to Central Portal via JReleaser (Publisher API)
-#      - name: Deploy to Maven Central (Portal)
-#        run: ./gradlew -Pversion=${{ steps.release_name.outputs.version }} jreleaserDeploy --stacktrace
+      - name: Stage artifacts locally
+        run: ./gradlew -Pversion=${{ steps.release_name.outputs.version }} publishMavenPublicationToLocalStagingRepository --stacktrace
+
+      # Deploy to Central Portal via JReleaser (Publisher API)
+      - name: Deploy to Maven Central (Portal)
+        run: ./gradlew -Pversion=${{ steps.release_name.outputs.version }} jreleaserDeploy --stacktrace
 
   javadocs-release:
     needs: release
